@@ -193,7 +193,6 @@ public class GameFrame extends JFrame {
 
     private void checkOOB(){
         if (snake.getXPos(0) > 19 || snake.getXPos(0) < 0 ||  snake.getYPos(0) > 19 || snake.getYPos(0) < 0) {
-            //TODO game beenden und neu starten
             System.err.println("Fertig");
             System.exit(0);
         }
