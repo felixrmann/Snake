@@ -123,20 +123,28 @@ public class GameFrame extends JFrame {
     private void handleSnake() {
         switch (direction){
             case 'w':
-                snake.setYPos(snake.getYPos(0) - 1);
-                snake.setXPos(snake.getXPos(0));
+                if ((snake.getYPos(0) - 1) >= 0){
+                    snake.setYPos(snake.getYPos(0) - 1);
+                    snake.setXPos(snake.getXPos(0));
+                } else fertig();
                 break;
             case 'a':
-                snake.setYPos(snake.getYPos(0));
-                snake.setXPos(snake.getXPos(0) - 1);
+                if ((snake.getXPos(0) - 1) >= 0){
+                    snake.setYPos(snake.getYPos(0));
+                    snake.setXPos(snake.getXPos(0) - 1);
+                } else fertig();
                 break;
             case 's':
-                snake.setYPos(snake.getYPos(0) + 1);
-                snake.setXPos(snake.getXPos(0));
+                if ((snake.getYPos(0) + 1 <= 19)){
+                    snake.setYPos(snake.getYPos(0) + 1);
+                    snake.setXPos(snake.getXPos(0));
+                } else fertig();
                 break;
             case 'd':
-                snake.setYPos(snake.getYPos(0));
-                snake.setXPos(snake.getXPos(0) + 1);
+                if ((snake.getXPos(0) + 1 <= 19)){
+                    snake.setYPos(snake.getYPos(0));
+                    snake.setXPos(snake.getXPos(0) + 1);
+                } else fertig();
                 break;
         }
         checkBerry();
@@ -180,7 +188,7 @@ public class GameFrame extends JFrame {
     }
 
     private void fertig() {
-        new Snake();
+        System.exit(0);
     }
 
     private void checkOOB(){
